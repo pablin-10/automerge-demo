@@ -1,0 +1,16 @@
+name: Wait 30s and pass
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  wait:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 30 seconds
+        run: sleep 30
+      - name: Mark success
+        run: echo "Workflow completed successfully"
+
+
