@@ -1,7 +1,6 @@
 name: Wait 30s and pass
 
 on:
-  push:
   pull_request:
 
 jobs:
