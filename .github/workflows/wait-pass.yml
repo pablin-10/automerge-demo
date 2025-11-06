@@ -3,12 +3,16 @@ name: Wait 30s and pass
 on:
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   wait:
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep for 30 seconds
-        run: sleep 30
+      - name: Sleep for 90 seconds
+        run: sleep 90
       - name: Mark success
         run: echo "Workflow completed successfully"
 
